@@ -1,5 +1,8 @@
-package JuegoVida.src.dominio;
+package pr2.org.dominio;
 
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /*Las reglas son las habituales:
@@ -14,7 +17,7 @@ public class Tablero {
          private int[][] estadoActual = new int[DIMENSION][DIMENSION]; //matriz que representa el estado actual.
          private int[][] estadoSiguiente = new int[DIMENSION][DIMENSION]; // Matriz que representa el estado siguiente.
          
-         public void instaurarMatriz(){
+         public void instaurarMatriz() throws FileNotFoundException{
              File fichero = new File("Matriz.txt"); 
              Scanner escanear = new Scanner (fichero); 
 

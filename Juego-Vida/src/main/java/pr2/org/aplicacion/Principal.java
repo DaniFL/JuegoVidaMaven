@@ -1,7 +1,10 @@
-package JuegoVida.src.aplicacion;
+package pr2.org.aplicacion;
+
+
+import java.util.concurrent.TimeUnit;
 
 import pr2.org.dominio.Tablero;
-import java.util.concurrent.TimeUnit;
+
 import java.lang.InterruptedException;
 
 public class Principal {
