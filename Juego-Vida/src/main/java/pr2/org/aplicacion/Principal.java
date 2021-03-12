@@ -1,6 +1,6 @@
 package JuegoVida.src.aplicacion;
 
-
+import pr2.org.dominio.Tablero;
 import java.util.concurrent.TimeUnit;
 import java.lang.InterruptedException;
 

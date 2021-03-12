@@ -16,12 +16,12 @@ public class Tablero {
          
          public void instaurarMatriz(){
              File fichero = new File("Matriz.txt"); 
-             Scanner martinEsUnaZorra = new Scanner (fichero); 
+             Scanner escanear = new Scanner (fichero); 
 
              //Recorer fichero de texto de arriba abajo 
             int i=0;
-             while (martinEsUnaZorra.hasNextLine()){
-                 String fila = martinEsUnaZorra.nextLine();
+             while (escanear.hasNextLine()){
+                 String fila = escanear.nextLine();
                  for (int j = 0; j < fila.length(); j++){
                      int k = fila.charAt(j);
                      estadoActual[i][j] = k;
