@@ -13,29 +13,32 @@ c) El resto de células pasan a estar muertas en el estado siguiente.
 3. El estado inicial del tablero estará almacenado en un fichero (llamado matriz) con 30 filas y 30 columnas en que cada celda será un uno o un cero. Por ejemplo,*/
 
 public class Tablero {
-    private static int DIMENSION = 30;
-         private int[][] estadoActual = new int[DIMENSION][DIMENSION]; //matriz que representa el estado actual.
-         private int[][] estadoSiguiente = new int[DIMENSION][DIMENSION]; // Matriz que representa el estado siguiente.
+    private static int DIMENSION = 32;
+         public int[][] estadoActual = new int[DIMENSION][DIMENSION]; //matriz que representa el estado actual.
+         public int[][] estadoSiguiente = new int[DIMENSION][DIMENSION]; // Matriz que representa el estado siguiente.
+         private Scanner leerfichero;
          
          public void instaurarMatriz() throws FileNotFoundException{
              File fichero = new File("Matriz.txt"); 
-             Scanner escanear = new Scanner (fichero); 
+             leerfichero = new Scanner (fichero); 
 
-             //Recorer fichero de texto de arriba abajo 
+             //Lee el estado inicial del fichero (Matriz.txt) y lo recorer fichero de texto de arriba abajo 
             int i=0;
-             while (escanear.hasNextLine()){
-                 String fila = escanear.nextLine();
+             while (leerfichero.hasNextLine()){
+                 String fila = leerfichero.nextLine();
                  for (int j = 0; j < fila.length(); j++){
                      int k = fila.charAt(j);
                      estadoActual[i][j] = k;
                  }
                  i++;
                  System.out.println(fila);
-             }
-
-         }
-         public void leerEstadoActual(){
-         }
+            }
+        }
+        public void leerEstadoActual(){
+         
+        
+        
+        }
          // La secuencia de ceros y unos del fichero es guardada
          // en ‘estadoActual‘ y, utilizando las reglas del juego
          // de la vida, se insertan los ceros y unos
