@@ -34,7 +34,7 @@ public class Tablero {
                  System.out.println(fila);
             }
         }
-        public void leerEstadoActual(){
+         public void leerEstadoActual(){
          
         
         
