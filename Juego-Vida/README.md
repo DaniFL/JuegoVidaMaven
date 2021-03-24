@@ -33,3 +33,7 @@ En primer lugar, asegúrese de que se encuentra en la carpeta correcta, para ell
 * Para compilar y crear el JAR: "mvn compile assembly:single"
 
 * Para ejecutar:"java -jar target/Juego-Vida-1.0-SNAPSHOT-jar-with-dependencies.jar"
+
+<p align = "center">
+<img width = "800" height = "400" src = "GameOfLive.gift">
+</p>
