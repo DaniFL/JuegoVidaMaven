@@ -157,9 +157,8 @@ public class Tablero {
                 }
             }
 
-         //System.out.println();
+         System.out.println();
 	     estadoSiguiente= estadoActual;
-         
     }
           /* Devuelve, en modo texto, el estado actual.
          @return el estado actual. */
