@@ -59,7 +59,7 @@ public class Tablero {
             }
         }
 
-        /** La secuencia de ceros y unos del fichero es guardada
+        /* La secuencia de ceros y unos del fichero es guardada
          en ‘estadoActual‘ y, utilizando las reglas del juego
          de la vida, se insertan los ceros y unos
          correspondientes en ‘estadoSiguiente‘. */
@@ -80,7 +80,7 @@ public class Tablero {
         }
     }
 
-         /**Transita al estado siguiente según las reglas del juego de la vida (@throws IOException) */
+         //Transita al estado siguiente según las reglas del juego de la vida (@throws IOException) 
 
          public static void transitarAlEstadoSiguiente() throws IOException{
 
