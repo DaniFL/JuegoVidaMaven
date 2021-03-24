@@ -29,11 +29,11 @@ public class Tablero {
          public static void leerEstadoActual() throws IOException{
             
                     File fichero = new File("Matriz.txt");
-                    Scanner s = new Scanner(fichero);
+                    Scanner leerFichero = new Scanner(fichero);
                     	
                     int i =0;
-                    while (s.hasNextLine()) {
-                        String fila = s.nextLine(); 	
+                    while (leerFichero.hasNextLine()) {
+                        String fila = leerFichero.nextLine(); 	
                             
                          for (int r=0; r<fila.length()-1; r++) {
                             estadoActual[i][r]= Character.getNumericValue(fila.charAt(r));
@@ -41,8 +41,8 @@ public class Tablero {
                          i++;
                         System.out.println(fila);
                      }
-                    
-                    s.close();
+
+                     leerFichero.close();
 
         }
 
@@ -51,7 +51,7 @@ public class Tablero {
          el número es menor que 0,5, entonces la celda está
          inicialmente viva. En caso contrario, está muerta. */
          
-          public static void generarEstadoActualPorMontecarlo(){
+         public static void generarEstadoActualPorMontecarlo(){
 
         for (int i = 0; i < DIMENSION; i++) {
             for (int j = 0; j < DIMENSION; j++) {
@@ -157,9 +157,8 @@ public class Tablero {
                 }
             }
 
-            //System.out.println();
-			
-            estadoSiguiente= estadoActual;
+         //System.out.println();
+	     estadoSiguiente= estadoActual;
          
     }
           /* Devuelve, en modo texto, el estado actual.

@@ -19,14 +19,15 @@ limitations under the License.*/
 
 # Práctica 2: 
 
-El objetivo de esta práctica es poder implementar a partir de una matriz cuadrada de 32x32 el Juego de la Vida. Durante el proceso se ha de tener en cuenta las siguientes reglas:  
+El objetivo de esta práctica es poder implementar a partir de una matriz cuadrada de 30x30 el Juego de la Vida. Durante el proceso se ha de tener en cuenta las siguientes reglas:  
 
-a) Si una célula está viva y dos o tres de sus vecinas también lo están, entonces continúa viva en el estado siguiente.
-b) Si una célula está muerta y tres de sus vecinas están vivas, enton- ces pasa a estar viva en el estado siguiente.
-c) El resto de células pasan a estar muertas en el estado siguiente.
-
+* Si una célula está viva y dos o tres de sus vecinas también lo están, entonces continúa viva en el estado siguiente.
+* Si una célula está muerta y tres de sus vecinas están vivas, entonces pasa a estar viva en el estado siguiente.
+* El resto de células pasan a estar muertas en el estado siguiente.
 # Funcionamiento: 
 
-* Para compilar y crear el JAR: mvn compile assembly:single
+En primer lugar, asegurese de que se encuentra en la carpeta correcta, para ello utilice los comandos "ls" (para ver donde se encuentra) y "cd Juego-vida" (para acceder a la carpeta de la práctica) en el terminal. Una vez dentro proceda a ejecutar los siguientes comandos:
 
-* Para ejecutar: java -jar target/Juego-Vida-1.0-SNAPSHOT-jar-with-dependencies.jar
+* Para compilar y crear el JAR: "mvn compile assembly:single"
+
+* Para ejecutar:"java -jar target/Juego-Vida-1.0-SNAPSHOT-jar-with-dependencies.jar"
