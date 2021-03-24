@@ -26,7 +26,7 @@ El objetivo de esta práctica es poder implementar a partir de una matriz cuadra
 * El resto de células pasan a estar muertas en el estado siguiente.
 # Funcionamiento: 
 
-En primer lugar, asegurese de que se encuentra en la carpeta correcta, para ello utilice los comandos "ls" (para ver donde se encuentra) y "cd Juego-vida" (para acceder a la carpeta de la práctica) en el terminal. Una vez dentro proceda a ejecutar los siguientes comandos:
+En primer lugar, asegúrese de que se encuentra en la carpeta correcta, para ello utilice los comandos "ls" (para ver donde se encuentra) y "cd Juego-vida" (para acceder a la carpeta de la práctica) en el terminal. Una vez dentro proceda a ejecutar los siguientes comandos:
 
 * Para compilar y crear el JAR: "mvn compile assembly:single"
 
