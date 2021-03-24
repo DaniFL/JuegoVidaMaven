@@ -1,4 +1,4 @@
-## JUEGO DE LA VIDA 
+## GAME OF LIFE
 
 ![Copyright.png](Copyright.png)
 
@@ -35,5 +35,5 @@ En primer lugar, asegúrese de que se encuentra en la carpeta correcta, para ell
 * Para ejecutar:"java -jar target/Juego-Vida-1.0-SNAPSHOT-jar-with-dependencies.jar"
 
 <p align = "center">
-<img width = "800" height = "400" src = "GameOfLive.gif">
+<img width = "800" height = "400" src = "GameOfLife.gif">
 </p>
