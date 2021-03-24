@@ -27,6 +27,6 @@ c) El resto de células pasan a estar muertas en el estado siguiente.
 
 # Funcionamiento: 
 
-Para compilar y crear el JAR: mvn compile assembly:single
+* Para compilar y crear el JAR: mvn compile assembly:single
 
-Para ejecutar: java -jar target/Juego-Vida-1.0-SNAPSHOT-jar-with-dependencies.jar
+* Para ejecutar: java -jar target/Juego-Vida-1.0-SNAPSHOT-jar-with-dependencies.jar
