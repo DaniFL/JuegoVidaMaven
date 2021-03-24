@@ -54,10 +54,6 @@ public class Tablero {
                      }
                     
                     s.close();
-                    
-            
-    
-                    
         }
         
         
