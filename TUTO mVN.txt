@@ -1,3 +1,0 @@
-Para compilar y crear el JAR: mvn compile assembly:single
-
-Para ejecutar: java -jar target/Juego-Vida-1.0-SNAPSHOT-jar-with-dependencies.jar

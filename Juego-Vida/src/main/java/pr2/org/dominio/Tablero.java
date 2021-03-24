@@ -1,14 +1,18 @@
 package pr2.org.dominio;
 
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-/*Las reglas son las habituales:
+/**
+* Esta clase es responsable de leer el tablero de un
+* fichero en forma de ceros y unos, ir transitando de
+* estados e ir mostrando dichos estados.
+*/
+
+
+/* Las reglas son las habituales:
 a) Si una célula está viva y dos o tres de sus vecinas también lo están, entonces continúa viva en el estado siguiente.
 b) Si una célula está muerta y tres de sus vecinas están vivas, enton- ces pasa a estar viva en el estado siguiente.
 c) El resto de células pasan a estar muertas en el estado siguiente.
@@ -19,8 +23,9 @@ public class Tablero {
     private static int DIMENSION = 30;
          public static int[][] estadoActual = new int[DIMENSION+2][DIMENSION+2]; //matriz que representa el estado actual.
          public static int[][] estadoSiguiente = new int[DIMENSION+2][DIMENSION+2]; // Matriz que representa el estado siguiente.
-         private Scanner leerfichero;
          
+         // Lee el estado inicial de un fichero llamado ‘Matriz.txt‘. 
+
          public static void leerEstadoActual() throws IOException{
             
                     File fichero = new File("Matriz.txt");
@@ -40,19 +45,12 @@ public class Tablero {
                     s.close();
 
         }
-        
-        
-        
-         // La secuencia de ceros y unos del fichero es guardada
-         // en ‘estadoActual‘ y, utilizando las reglas del juego
-         // de la vida, se insertan los ceros y unos
-         // correspondientes en ‘estadoSiguiente‘.
-         /********************
-          * Genera un estado inicial aleatorio. Para cada celda
-          * genera un número aleatorio en el intervalo [0, 1). Si
-          * el número es menor que 0,5, entonces la celda está
-          * inicialmente viva. En caso contrario, está muerta.
-          *******************/
+
+         /** Genera un estado inicial aleatorio. Para cada celda
+         genera un número aleatorio en el intervalo [0, 1). Si
+         el número es menor que 0,5, entonces la celda está
+         inicialmente viva. En caso contrario, está muerta. */
+         
           public static void generarEstadoActualPorMontecarlo(){
 
         for (int i = 0; i < DIMENSION; i++) {
@@ -60,6 +58,11 @@ public class Tablero {
                 estadoActual[i+1][j+1] = (int) Math.round(Math.random());
             }
         }
+
+        /** La secuencia de ceros y unos del fichero es guardada
+         en ‘estadoActual‘ y, utilizando las reglas del juego
+         de la vida, se insertan los ceros y unos
+         correspondientes en ‘estadoSiguiente‘. */
 
         for (int i = 1; i < DIMENSION+1; i++) {
             for (int j = 1; j < DIMENSION+1; j++) {
@@ -77,18 +80,15 @@ public class Tablero {
         }
     }
 
-          // La secuencia de ceros y unos generada es guardada
-          // en ‘estadoActual‘ y, utilizando las reglas del juego
-          // de la vida, se insertan los ceros y unos
-          // correspondientes en ‘estadoSiguiente‘.
-         /********************
-          * Transita al estado siguiente según las reglas del
-          * juego de la vida.
-         * @throws IOException
-          ********************/
+         /**Transita al estado siguiente según las reglas del juego de la vida (@throws IOException) */
+
          public static void transitarAlEstadoSiguiente() throws IOException{
-            int nUnos=0;
-            
+
+         // La variable ‘estadoActual‘ pasa a tener el contenido
+         // de ‘estadoSiguiente‘ y, éste útimo atributo pasar a
+         // reflejar el siguiente estado.
+
+         int nUnos=0;
             for (int r=1; r<(DIMENSION-2); r++) {
                 for(int i=1; i<(DIMENSION-2) ; i++) {
                     //System.out.print(estadoSiguiente[r][i]);
@@ -162,15 +162,9 @@ public class Tablero {
             estadoSiguiente= estadoActual;
          
     }
-         // La variable ‘estadoActual‘ pasa a tener el contenido
-         // de ‘estadoSiguiente‘ y, éste útimo atributo pasar a
-         // reflejar el siguiente estado.
-         /*******************
-          * Devuelve, en modo texto, el estado actual.
-          * @return el estado actual.
-          *******************/
-         
-
+          /* Devuelve, en modo texto, el estado actual.
+         @return el estado actual. */
+        
           @Override
          public String toString(){
              StringBuilder secuencia = new StringBuilder();
@@ -184,6 +178,6 @@ public class Tablero {
                     }
                     secuencia.append("\n");
                 }
-             return secuencia.toString(); // Esta línea hay que modificarla.
+             return secuencia.toString(); 
          }
 }

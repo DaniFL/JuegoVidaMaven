@@ -5,7 +5,6 @@ import java.util.concurrent.TimeUnit;
 
 import pr2.org.dominio.Tablero;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.InterruptedException;
 
