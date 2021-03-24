@@ -16,27 +16,11 @@ c) El resto de células pasan a estar muertas en el estado siguiente.
 3. El estado inicial del tablero estará almacenado en un fichero (llamado matriz) con 30 filas y 30 columnas en que cada celda será un uno o un cero. Por ejemplo,*/
 
 public class Tablero {
-    private static int DIMENSION = 32;
-         public static int[][] estadoActual = new int[DIMENSION][DIMENSION]; //matriz que representa el estado actual.
-         public static int[][] estadoSiguiente = new int[DIMENSION][DIMENSION]; // Matriz que representa el estado siguiente.
+    private static int DIMENSION = 30;
+         public static int[][] estadoActual = new int[DIMENSION+2][DIMENSION+2]; //matriz que representa el estado actual.
+         public static int[][] estadoSiguiente = new int[DIMENSION+2][DIMENSION+2]; // Matriz que representa el estado siguiente.
          private Scanner leerfichero;
          
-         public void instaurarMatriz() throws FileNotFoundException{
-             File fichero = new File("Matriz.txt"); 
-             leerfichero = new Scanner (fichero); 
-
-             //Lee el estado inicial del fichero (Matriz.txt) y lo recorer fichero de texto de arriba abajo 
-            int i=0;
-             while (leerfichero.hasNextLine()){
-                 String fila = leerfichero.nextLine();
-                 for (int j = 0; j < fila.length(); j++){
-                     int k = fila.charAt(j);
-                     estadoActual[i][j] = k;
-                 }
-                 i++;
-                 System.out.println(fila);
-            }
-        }
          public static void leerEstadoActual() throws IOException{
             
                     File fichero = new File("Matriz.txt");
@@ -69,7 +53,30 @@ public class Tablero {
           * el número es menor que 0,5, entonces la celda está
           * inicialmente viva. En caso contrario, está muerta.
           *******************/
-          public static void generarEstadoActualPorMontecarlo(){}
+          public static void generarEstadoActualPorMontecarlo(){
+
+        for (int i = 0; i < DIMENSION; i++) {
+            for (int j = 0; j < DIMENSION; j++) {
+                estadoActual[i+1][j+1] = (int) Math.round(Math.random());
+            }
+        }
+
+        for (int i = 1; i < DIMENSION+1; i++) {
+            for (int j = 1; j < DIMENSION+1; j++) {
+                int vecinasVivas = estadoActual[i - 1][j - 1] + estadoActual[i - 1][j] + estadoActual[i - 1][j + 1]
+                        + estadoActual[i][j - 1] + estadoActual[i][j + 1] + estadoActual[i + 1][j - 1] +
+                        estadoActual[i + 1][j] + estadoActual[i + 1][j + 1];
+                     if (estadoActual[i][j] == 1 && (vecinasVivas == 2 || vecinasVivas == 3)) {
+                        estadoSiguiente[i][j] = 1;
+                }    else if (estadoActual[i][j] == 0 && vecinasVivas == 3) {
+                        estadoSiguiente[i][j] = 1;
+                }    else {
+                        estadoSiguiente[i][j] = 0;
+                }
+            }
+        }
+    }
+
           // La secuencia de ceros y unos generada es guardada
           // en ‘estadoActual‘ y, utilizando las reglas del juego
           // de la vida, se insertan los ceros y unos
@@ -84,7 +91,7 @@ public class Tablero {
             
             for (int r=1; r<(DIMENSION-2); r++) {
                 for(int i=1; i<(DIMENSION-2) ; i++) {
-                    System.out.print(estadoSiguiente[r][i]);
+                    //System.out.print(estadoSiguiente[r][i]);
                     if(estadoActual[r][i]==1) {	
                         nUnos = 0;
                                 
@@ -150,7 +157,7 @@ public class Tablero {
                 }
             }
 
-            System.out.println();
+            //System.out.println();
 			
             estadoSiguiente= estadoActual;
          
@@ -166,6 +173,17 @@ public class Tablero {
 
           @Override
          public String toString(){
-             return ""; // Esta línea hay que modificarla.
+             StringBuilder secuencia = new StringBuilder();
+                for(int r = 1; r < DIMENSION -1; r++){
+                    for(int i = 1; i < DIMENSION -1; i++){
+                        if (estadoActual[r][i]== 0){
+                            secuencia.append("");
+                        } else{
+                            secuencia.append("x");
+                        }
+                    }
+                    secuencia.append("\n");
+                }
+             return secuencia.toString(); // Esta línea hay que modificarla.
          }
 }
